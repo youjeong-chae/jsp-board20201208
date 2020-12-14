@@ -12,15 +12,25 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 <div class="container">
-  <h1>회원 탈퇴</h1>
-  <form action="removeMember.do" method="post">
-  
-    암호 : <input type="password" name="password" id="" />
-    <c:if test="${errors.password }">패스워드를 입력해주세요.</c:if>
-    <c:if test="${errors.invalidPassword }">패스워드가 일치하지 않습니다.</c:if>
-    <br />
-    <input type="submit" value="탈퇴" />
+  <h1>게시글 수정</h1>
+  <form action="modify.do" method="post">
+    <input type="text" name="no" value="${modReq.articleNumber }" hidden >
+    <p>
+    번호 : <br />
+    ${modReq.articleNumber }
+    </p>
+    <p>
+      제목: <br />
+      <input type="text" name="title" value="${modReq.title }" />
+      <c:if test="${errors.title }">제목을 입력하세요.</c:if>
+    </p>
+    <p>
+    내용: <br />
+    <textarea name="content" id="" cols="30" rows="5">${modReq.content }</textarea>
+    </p>
+    <input type="submit" value="글 수정" />
   </form>
 </div>
 </body>
